@@ -509,4 +509,22 @@ body {
   .whatsapp-float:hover {
     transform: scale(1.1);
   }
+@media (max-width: 768px) {
+  .header .container {
+    justify-content: flex-start;
+    padding: 0 20px;
+  }
+
+  .logo-mini {
+    display: inline;
+    text-align: left;
+    margin-right: auto;
+  }
+
+  .menu-toggle {
+    right: 20px; /* mantém o botão do menu à direita */
+    position: absolute;
+  }
+}
+
   

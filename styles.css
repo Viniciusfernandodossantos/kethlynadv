@@ -528,4 +528,26 @@ body {
   .whatsapp-float:hover {
     transform: scale(1.1);
   }
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--preto);
+  padding-left: 10px;
+  flex-shrink: 0;
+}
+
+.header .container {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
 

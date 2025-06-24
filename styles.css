@@ -476,18 +476,37 @@ body {
   }
   
   /* Responsividade: empilha imagem e texto no mobile */
-  @media (max-width: 768px) {
-    .sobre-content {
-      flex-direction: column;
-      text-align: center;
-    }
-  
-    .sobre-text h2,
-    .sobre-text h3 {
-      text-align: center;
-    }
+@media (max-width: 768px) {
+  .header .container {
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 16px;
   }
-  
+
+  .logo {
+    margin-left: 0;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+  }
+
+  .logo-mini {
+    display: inline;
+    font-size: 30px;
+  }
+
+  .logo-full {
+    display: none;
+  }
+
+  .menu-toggle {
+    position: relative;
+    right: 0;
+    margin-left: auto;
+  }
+}
+
   
   .whatsapp-float {
     position: fixed;
@@ -509,22 +528,4 @@ body {
   .whatsapp-float:hover {
     transform: scale(1.1);
   }
-@media (max-width: 768px) {
-  .header .container {
-    justify-content: flex-start;
-    padding: 0 20px;
-  }
 
-  .logo-mini {
-    display: inline;
-    text-align: left;
-    margin-right: auto;
-  }
-
-  .menu-toggle {
-    right: 20px; /* mantém o botão do menu à direita */
-    position: absolute;
-  }
-}
-
-  

@@ -63,14 +63,19 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0 40px;
+  width: 100%;
+  max-width: none;
+  margin: 0 auto;
 }
 
 .logo {
   font-family: 'Playfair Display', serif;
   font-weight: 700;
-  color: var(--preto);
   font-size: 24px;
-  position: relative;
+  color: var(--preto);
+  padding-left: 10px;
+  flex-shrink: 0;
 }
 
 .logo-mini {
@@ -82,7 +87,13 @@ body {
   display: inline;
 }
 
-/* Menu */
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: var(--cinza-escuro);
+}
+
 .nav ul {
   list-style: none;
   display: flex;
@@ -137,7 +148,7 @@ body {
   border-radius: 8px;
 }
 
-/* Sobre */
+/* Seções comuns */
 .sobre,
 .atuacao,
 .depoimentos,
@@ -153,49 +164,6 @@ body {
   gap: 40px;
 }
 
-.sobre-image img {
-  width: 100%;
-  border-radius: 8px;
-}
-
-.sobre-text h2,
-.atuacao h2,
-.depoimentos h2,
-.contato-text h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 36px;
-  color: var(--vermelho-escuro);
-}
-
-.sobre-text h3 {
-  font-size: 24px;
-  color: var(--dourado);
-  margin: 10px 0;
-}
-/* Sobre */
-.sobre,
-.atuacao,
-.depoimentos,
-.contato {
-  padding: 80px 0;
-}
-
-.sobre-content,
-.contato-content {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 40px;
-}
-
-.sobre-image,
-.sobre-text,
-.contato-text,
-.form {
-  flex: 1;
-}
-
-.sobre-image img,
 .sobre-image img {
   width: 100%;
   border-radius: 8px;
@@ -220,7 +188,6 @@ body {
 .contato-text p {
   margin: 10px 0;
 }
-
 
 /* Áreas de Atuação */
 .atuacao {
@@ -337,8 +304,8 @@ body {
 .footer-links,
 .footer-social {
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .footer a {
@@ -370,6 +337,14 @@ body {
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   z-index: 1000;
   text-decoration: none;
+  transition: transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
 }
 
 /* Animações */
@@ -378,33 +353,13 @@ body {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Menu Responsivo */
-.menu-toggle {
-  display: none;
-  position: absolute;
-  top: 25px;
-  right: 20px;
-  font-size: 28px;
-  cursor: pointer;
-  color: var(--cinza-escuro);
-  z-index: 1100;
-}
-
+/* Responsivo */
 @media (max-width: 768px) {
-  .header .container,
-  .hero-content,
-  .sobre-content,
-  .contato-content,
-  .footer-content,
-  .footer-links,
-  .footer-social {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  .header .container {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 16px;
   }
-
-  .logo-full { display: none; }
-  .logo-mini { display: inline; }
 
   .nav {
     display: none;
@@ -423,6 +378,7 @@ body {
   .nav ul {
     flex-direction: column;
     gap: 10px;
+    padding: 10px;
   }
 
   .nav ul li {
@@ -443,6 +399,9 @@ body {
     display: block;
   }
 
+  .logo-full { display: none; }
+  .logo-mini { display: inline; }
+
   .hero-text h1 {
     font-size: 30px;
   }
@@ -451,110 +410,15 @@ body {
   .depoimentos-grid {
     grid-template-columns: 1fr;
   }
-}
-/* Sobre - lado a lado em telas grandes */
-.sobre-content {
-    flex-direction: row;
-  }
-  
-  /* Em telas pequenas, empilhar (responsivo) */
-/* SOBRE: imagem à esquerda, texto à direita (desktop) */
-.sobre-content {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 40px;
-  }
-  
-  /* CONTATO: permanece igual */
+
+  .sobre-content,
   .contato-content {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 40px;
-  }
-  
-  /* Responsividade: empilha imagem e texto no mobile */
-@media (max-width: 768px) {
-  .header .container {
-    justify-content: space-between;
-    flex-direction: row;
-    align-items: center;
-    padding: 0 16px;
+    flex-direction: column;
+    text-align: center;
   }
 
-  .logo {
-    margin-left: 0;
-    margin-right: auto;
-    display: flex;
+  .footer-content {
+    flex-direction: column;
     align-items: center;
   }
-
-  .logo-mini {
-    display: inline;
-    font-size: 30px;
-  }
-
-  .logo-full {
-    display: none;
-  }
-
-  .menu-toggle {
-    position: relative;
-    right: 0;
-    margin-left: auto;
-  }
-}
-
-  
-  .whatsapp-float {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background-color: #25D366;
-    color: white;
-    border-radius: 50%;
-    padding: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    z-index: 999;
-    text-decoration: none;
-    transition: transform 0.3s ease;
-  }
-  
-  .whatsapp-float:hover {
-    transform: scale(1.1);
-  }
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 20px;
-}
-
-.logo {
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
-  font-size: 24px;
-  color: var(--preto);
-  padding-left: 10px;
-  flex-shrink: 0;
-}
-
-.header .container {
-  flex-grow: 1;
-  display: flex;
-  padding: 0 32px; 
-  justify-content: center; 
-  align-items: center;
-  width: 100%;
-  max-width: 100%;
-}
-.container {
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
 }

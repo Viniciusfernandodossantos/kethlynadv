@@ -422,3 +422,25 @@ body {
     align-items: center;
   }
 }
+.sobre-content {
+  display: flex;
+  align-items: center;
+  gap: 2rem; /* espaçamento entre imagem e texto */
+  flex-wrap: wrap; /* garante boa responsividade em telas menores */
+}
+
+.sobre-image {
+  flex: 1;
+  min-width: 250px;
+}
+
+.sobre-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px; /* opcional, apenas para estética */
+}
+
+.sobre-text {
+  flex: 2;
+  min-width: 300px;
+}
